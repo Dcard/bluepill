@@ -677,7 +677,7 @@ static NSUUID *sessionID;
     NSString *xcodeVersion = [BPUtils runShell:@"xcodebuild -version"];
     [BPUtils printInfo:DEBUGINFO withString:@"xcode build version: %@", xcodeVersion];
 
-    if (!self.unsafeSkipXcodeVersionCheck) {
+    /*if (!self.unsafeSkipXcodeVersionCheck) {
         if ([xcodeVersion rangeOfString:@BP_DEFAULT_XCODE_VERSION].location == NSNotFound) {
             BP_SET_ERROR(errPtr, @"ERROR: Invalid Xcode version:\n%s;\nOnly %s is supported\n", [xcodeVersion UTF8String], BP_DEFAULT_XCODE_VERSION);
             return NO;
@@ -691,7 +691,7 @@ static NSUUID *sessionID;
                          [[[BPUtils getXcodeRuntimeVersion] substringToIndex:4] UTF8String], [@BP_DEFAULT_XCODE_VERSION UTF8String]);
             return NO;
         }
-    }
+    }*/
 
     if (self.deleteSimUDID) {
         return YES;
