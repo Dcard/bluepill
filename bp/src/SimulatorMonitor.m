@@ -197,6 +197,7 @@
             if (__self.testsState == Running) {
                 [BPUtils printInfo:CRASH withString:@"%@/%@ crashed app.", testClass, testName];
                 [[BPStats sharedStats] endTimer:[NSString stringWithFormat:TEST_CASE_FORMAT, [BPStats sharedStats].attemptNumber, testClass, testName] withResult:@"CRASHED"];
+                self.exitStatus = BPExitStatusAppCrashed;
             } else {
                 assert(__self.testsState == Idle);
                 [BPUtils printInfo:CRASH withString:@"App crashed before tests started."];
@@ -204,7 +205,6 @@
             [self stopTestsWithErrorMessage:@"App Crashed"
                                 forTestName:(self.currentTestName ?: self.previousTestName)
                                     inClass:(self.currentClassName ?: self.previousClassName)];
-            self.exitStatus = BPExitStatusAppCrashed;
             [[BPStats sharedStats] addApplicationCrash];
         }
     }
