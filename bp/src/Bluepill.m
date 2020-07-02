@@ -606,7 +606,7 @@ static void onInterrupt(int ignore) {
 
         case BPExitStatusAllTestsPassed:
             // Time to exit
-            self.finalExitStatus |= BPExitStatusAllTestsPassed;
+            self.finalExitStatus = BPExitStatusAllTestsPassed;
             self.exitLoop = YES;
             return;
 
